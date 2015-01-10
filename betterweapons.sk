@@ -1,0 +1,138 @@
+#hercore betterweapons
+#=============================================#
+#   Skrypt napisany przez: herhor67           #
+#   Nazwa: BetterWeapons                      #
+#=============================================#
+#  Licencja skryptu:                          #
+# * Nie zezwalam na:                          #
+# - Usuwanie treści o autorze!                #
+# - Podszywanie się pod autora!               #
+# - Używanie kodu skryptu w swoich skryptach! #
+# - Zarabianie na skrypcie!                   #
+# - Wrzucanie skryptu do internetu!           #
+# * Zezwalam na:                              #
+# + Dodawanie kodu na swoja potrzebę!         #
+# + Modyfikowanie wiadomości!                 #
+#=============================================#
+options:
+	odleglosc: 10
+
+on rightclick with axe:
+	set {_narzedzie.%player%} to player's tool
+#	if target is entity:
+	if distance between player and targeted entity is less than {@odleglosc}:
+		set {_ziomek.%player%} to location of targeted entity
+		remove player's tool from player
+		set {_dis} to distance between player and targeted entity
+		set {_dis} to "%{_dis}% ticks" parsed as timespan
+		wait {_dis}
+		if distance between targeted entity and {_ziomek.%player%} is less than 1:
+			{_narzedzie.%player%} is diamond axe:
+				damage targeted entity by 5 hearts
+			{_narzedzie.%player%} is iron axe:
+				damage targeted entity by 4 hearts
+			{_narzedzie.%player%} is stone axe:
+				damage targeted entity by 3 hearts
+			{_narzedzie.%player%} is golden axe or wooden axe:
+				damage targeted entity by 2 hearts
+			drop {_narzedzie.%player%} at location of targeted entity
+		else:
+			drop {_narzedzie.%player%} at location of {_ziomek.%player%}
+#	else:
+#		set {_dis} to distance between player and target parsed as number
+#		set {_dis} to "%{_dis}% ticks" parsed as timespan
+#		wait {_dis}
+#		drop {_narzedzie.%player%} at location of targeted entity
+
+command /kusza <player>:
+	permission: kusza.daj
+	trigger:
+		give player-arg 1 iron pickaxe named "&6Kusza - nienaciągnięta"
+		
+on rightclick:
+	if player is sneaking:
+#================================================================================================#
+		if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+			wait 0.1 second
+			if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+				wait 0.1 second
+				if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+					wait 0.1 second
+					if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+						wait 0.1 second
+						if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+							wait 0.1 second
+							if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+								wait 0.1 second
+								if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+									wait 0.1 second
+									if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+										wait 0.1 second
+										if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+											wait 0.1 second
+											if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+												wait 0.1 second
+												if player's tool is iron pickaxe named "&6Kusza - nienaciągnięta":
+													remove player's tool from player
+													give player 1 iron pickaxe named "&6Kusza - naciągnięta w połowie"
+#================================================================================================#
+		if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+			wait 0.1 second
+			if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+				wait 0.1 second
+				if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+					wait 0.1 second
+					if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+						wait 0.1 second
+						if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+							wait 0.1 second
+							if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+								wait 0.1 second
+								if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+									wait 0.1 second
+									if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+										wait 0.1 second
+										if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+											wait 0.1 second
+											if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+												wait 0.1 second
+												if player's tool is iron pickaxe named "&6Kusza - naciągnięta w połowie":
+													remove player's tool from player
+													give player 1 iron pickaxe named "&6Kusza - nienaładowana"
+													stop
+#================================================================================================#
+		if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+			wait 0.1 second
+			if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+				wait 0.1 second
+				if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+					wait 0.1 second
+					if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+						wait 0.1 second
+						if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+							wait 0.1 second
+							if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+								wait 0.1 second
+								if player's tool is iron pickaxe named "&6Kusza - nienaładowana":
+									if player's gamemode isn't creative:
+										if player has 1 arrow:
+											remove player's tool from player
+											remove 1 arrow from player
+											give player 1 iron pickaxe named "&6Kusza - gotowa do strzału"
+											stop
+									else:
+										remove player's tool from player
+										give player 1 iron pickaxe named "&6Kusza - gotowa do strzału"
+										stop
+#================================================================================================#
+	if player's tool is iron pickaxe named "&6Kusza - gotowa do strzału":
+		shoot arrow from player at speed 5
+		push player backwards at speed 0.2
+		remove player's tool from player
+		chance of 99%:
+			give player 1 iron pickaxe named "&6Kusza - nienaciągnięta"
+		else:
+			send "&6Twoja kusza się zniszczyła!"
+
+# End of File #
+# Thanks 4 using #
