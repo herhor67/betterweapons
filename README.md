@@ -1,2 +1,2 @@
-# betterweapons
+# BetterWeapons
 Lepsze bronie na serwer!
