@@ -17,9 +17,17 @@
 options:
 	odleglosc: 10
 
+aliases:
+	zelazo = 265
+	deski = 5
+	luk = 261
+
+on script load:
+	register new shaped recipe for iron pickaxe named "&6Kusza - nienaciągnięta" using luk, zelazo, zelazo, zelazo, deski, none, zelazo, lever, deski
+
+
 on rightclick with axe:
 	set {_narzedzie.%player%} to player's tool
-#	if target is entity:
 	if distance between player and targeted entity is less than {@odleglosc}:
 		set {_ziomek.%player%} to location of targeted entity
 		remove player's tool from player
@@ -36,13 +44,18 @@ on rightclick with axe:
 			{_narzedzie.%player%} is golden axe or wooden axe:
 				damage targeted entity by 2 hearts
 			drop {_narzedzie.%player%} at location of targeted entity
+			send "damage! %{_dis}%"
 		else:
 			drop {_narzedzie.%player%} at location of {_ziomek.%player%}
-#	else:
-#		set {_dis} to distance between player and target parsed as number
-#		set {_dis} to "%{_dis}% ticks" parsed as timespan
-#		wait {_dis}
-#		drop {_narzedzie.%player%} at location of targeted entity
+			send "nie trafiles! %{_dis}%"
+	else:
+		set {_loc} to location 10 meters in front of player
+		remove player's tool from player
+		set {_dis} to distance between player and target
+		set {_dis} to "%{_dis}% ticks" parsed as timespan
+		wait {_dis}
+		drop {_narzedzie.%player%} at {_loc}
+		send "Za daleko! %{_dis}%"
 
 command /kusza <player>:
 	permission: kusza.daj
