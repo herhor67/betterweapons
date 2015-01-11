@@ -49,7 +49,7 @@ on rightclick with axe:
 			drop {_narzedzie.%player%} at location of {_ziomek.%player%}
 			send "nie trafiles! %{_dis}%"
 	else:
-		set {_loc} to location 10 meters in front of player
+		set {_loc} to location {@odleglosc} meters in front of player
 		remove player's tool from player
 		set {_dis} to distance between player and target
 		set {_dis} to "%{_dis}% ticks" parsed as timespan
